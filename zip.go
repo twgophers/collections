@@ -1,28 +1,28 @@
 package collections
 
-type Tuple struct {
+type Pair struct {
 	A, B float64
 }
 
-func Zip(a, b []float64) []Tuple {
+func Zip(a, b []float64) []Pair {
 
 	if len(a) == 0 || len(b) == 0 {
-		return []Tuple{}
+		return []Pair{}
 	}
 
 	if len(a) < len(b) {
-		return createTuples(a, b)
+		return createPairs(a, b)
 	}
-	return createTuples(a[:len(b)], b)
+	return createPairs(a[:len(b)], b)
 
 }
 
-func createTuples(a, b []float64) []Tuple {
-	tuples := make([]Tuple, len(a), len(a))
+func createPairs(a, b []float64) []Pair {
+	Pairs := make([]Pair, len(a), len(a))
 
 	for i, e := range a {
-		tuples[i] = Tuple{e, b[i]}
+		Pairs[i] = Pair{e, b[i]}
 	}
-	return tuples
+	return Pairs
 
 }
